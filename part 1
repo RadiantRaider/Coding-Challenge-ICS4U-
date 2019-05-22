@@ -1,7 +1,9 @@
+//Declaring variables
 var cols, rows;
 var w = 40;
 var cells = [];
 
+//Creating the canvas (canvas size, and filling it with columns and rows)
 function setup() {
   createCanvas(400, 400);
   cols = floor(width/w);
@@ -15,6 +17,7 @@ function setup() {
   }
 }
 
+//
 function draw() {
   background(220);
   for(var i = 0; i < cells.length; i++){
