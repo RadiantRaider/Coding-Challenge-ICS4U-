@@ -27,7 +27,10 @@ function setup() {
 
 
 function draw() {
+//sets the background colour
   background(220);
+  
+  //Displays the maze on the canvas
   for(var i = 0; i < cells.length; i++){
     cells[i].show();
   }
