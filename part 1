@@ -1,20 +1,25 @@
+//sets the variables for columns and rows.
 var cols, rows;
 
+//sets the size of a individual cell in the maze and makes an empty array for cells
 var w = 40;
 var cells = [];
-
+//used to track current cell
 var current;
 
 function setup() {
-
+  //makes the program canvas
   createCanvas(400, 400);
+  //calculates how meny cells will be in the maze grid
   cols = floor(width/w);
   rows = floor(height/w);
-
+  
+  //creates the all the cell entities
   for(var j = 0; j < rows; j++){
-
      for(var i = 0; i < cols; i++){
+     //variable for making a new cell in the maze
        var cell = new Cell(i, j);
+       //adds the new cell into the maze
        cells.push(cell);
      }
   }
