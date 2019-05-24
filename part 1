@@ -1,69 +1,62 @@
-//sets the variables for columns and rows.
-var cols, rows;
+***Note: Computer science concept was noted as the camera, however doing the map function would also be a good idea.***
 
-//sets the size of a individual cell in the maze and makes an empty array for cells
-var w = 40;
-var cells = [];
-//used to track current cell
-var current;
+// Declaring variables
+let x = 0.01;
+let y = 0;
+let z = 0;
 
+let a = 10;
+let b = 28;
+let c = 8.0 / 3.0;
+
+// Creating an array of points that will be used to create the curve (This in turn creates the starting point) -
+let points = new Array();
+
+// Creating the background that will be drawn on
 function setup() {
-  //makes the program canvas
-  createCanvas(400, 400);
-  //calculates how meny cells will be in the maze grid
-  cols = floor(width/w);
-  rows = floor(height/w);
-  
-  //creates the all the cell entities
-  for(var j = 0; j < rows; j++){
-     for(var i = 0; i < cols; i++){
-     //variable for making a new cell in the maze
-       var cell = new Cell(i, j);
-       //adds the new cell into the maze
-       cells.push(cell);
-     }
-  }
+	createCanvas(800, 600, WEBGL);
+	colorMode(HSB);
 }
-
 
 function draw() {
-//sets the background colour
-  background(220);
+	background(0);
   
-  //Displays the maze on the canvas
-  for(var i = 0; i < cells.length; i++){
-    cells[i].show();
-  }
-}
+------------------------------------------- This is the math concept -------------------------------------------------------------------
+	let dt = 0.01;
+	let dx = (a * (y - x)) * dt;
+	let dy = (x * (b - z) - y) * dt;
+	let dz = (x * y - c * z) * dt;
+	x = x + dx;
+	y = y + dy;
+	z = z + dz;
+ --------------------------------------------------------------------------------------------------------------------------------------
+	
+  points.push(new p5.Vector(x, y, z));
+
+  ------------------------------------------- This is the computer science concept -----------------------------------------------------
+	// Makes the mouse able to be used as a camera
+  translate(0, 0, -80);
+	let camX = map(mouseX, 0, width, -200, 200);
+	let camY = map(mouseY, 0, height, -200,200); 
+	camera(camX, camY, (height/2.0) / tan(PI*30.0 / 180.0), 0, 0, 0, 0, 1, 0);
+  --------------------------------------------------------------------------------------------------------------------------------------
+
+	scale(5); // Increases the size of the curve
+	stroke(255);
+	noFill(); // Removes the line that shows the curve being drawn
+
+	let hu = 0;
+	beginShape();
 
 
-function Cell(i, j){
-  this.i = i;
-  this.j = j;
-  this.walls = [true,true,true,true];
+	for (let v of points) {
+		stroke(hu, 255, 255);
+		vertex(v.x, v.y, v.z);
 
-  this.show = function(){
-    var x = this.i*w;
-    var y = this.j*w;
-    
-    stroke(255);
-     if(this.walls[0]){
-      line(x,y, x+w,y);
-     }
-
-     if(this.walls[1]){
-      line(x+w,y, x+w,y+w);
-     } 
-
-     if(this.walls[2]){
-      line(x,y+w,x+w,y+w);
-     } 
-
-    if(this.walls[3]){
-      line(x,y,x,y+w);
-     } 
-     
-    // noFill();
-    // rect(x, y, w, w);
-  }
+		hu += 1;
+		if (hu > 255) {
+			hu = 0;
+		}
+	}
+	endShape();
 }
