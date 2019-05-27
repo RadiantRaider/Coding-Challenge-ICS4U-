@@ -1,0 +1,20 @@
+This creative aspect will change the Lorenz Attractor's colour based on the position of the mouse. This code is taken from Khan Academy's
+"Magnitude Visualizer" challenge, and will be used to help put the colour changing code into the code for the Lorenz Attractor.
+
+mouseMoved = function() {
+    background(255, 255, 255);
+    
+    var mouse = new PVector(mouseX, mouseY);
+    
+    stroke(255, 0, 0);
+    strokeWeight(3);
+    line(0, 0, mouse.x, mouse.y);
+    
+    var m = mouse.mag();
+    fill(0, 0, 0);
+    text(m, mouse.x, mouse.y);
+    
+    var d = dist(width, height, 0, 0);
+    var n = map(m, 0, d, 0, 255);
+    background(n, n, n);
+};
