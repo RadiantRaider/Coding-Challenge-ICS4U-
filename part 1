@@ -1,6 +1,6 @@
 ***Note: Computer science concept was noted as the camera, however doing the map function would also be a good idea.***
 
-// Declaring variables
+//Declaring variables
 let x = 0.01;
 let y = 0;
 let z = 0;
