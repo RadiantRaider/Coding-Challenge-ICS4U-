@@ -87,28 +87,27 @@ function draw() {
 	noFill(); // Removes the line that shows the curve being drawn
 
 
-
+	//variables for colour change
 	let hu = 0;	
-    let hr = 0;
-    let mouse = new p5.Vector(mouseX, mouseY);
+    	let hr = 0;
+	//tracks the mouse position
+   	let mouse = new p5.Vector(mouseX, mouseY);
+	
 	beginShape();
-
-
-
-
-
+	
+	//applies code inside to eeach point made
 	for (let v of points) {
-
+		//sets colour of point and draws it
 		stroke(hu, 255, 255);
-
 		vertex(v.x, v.y, v.z);
 
-
+		//changes the amount of red, higher amount the further right on the canvas the mouse is
 		hu = mouse.x;
-        hu = map(hu, 0, width, 0, 255);
-        hr = 0 - mouse.y;
-        hr = map(hr, 0, height, 0, 255);
-
+       		hu = map(hu, 0, width, 0, 255);
+		
+		//changes the amount of green, higher amount the further up on the canvas the mouse is
+       		hr = 0 - mouse.y;
+     	  	hr = map(hr, 0, height, 0, 255);
 	}
 
 	endShape();
