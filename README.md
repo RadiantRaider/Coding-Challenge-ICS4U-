@@ -5,6 +5,6 @@ Information pertinent to the idea of the coding challenge will be in this repo's
 Wiki:
 https://en.wikipedia.org/wiki/Lorenz_system
 
-math concept, cs concept, link to research
+math concept [DONE], cs concept[DONE], link to research [DONE]
 
 
