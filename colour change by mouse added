@@ -98,16 +98,16 @@ function draw() {
 	//applies code inside to eeach point made
 	for (let v of points) {
 		//sets colour of point and draws it
-		stroke(hu, 255, 255);
+		stroke(hu, hr, 255);
 		vertex(v.x, v.y, v.z);
 
-		//changes the amount of red, higher amount the further right on the canvas the mouse is
+		//changes the colour based on where your mouse is horizontally
 		hu = mouse.x;
-       		hu = map(hu, 0, width, 0, 255);
+       		hu = map(hu, 0, width, 0, 360);
 		
-		//changes the amount of green, higher amount the further up on the canvas the mouse is
-       		hr = 0 - mouse.y;
-     	  	hr = map(hr, 0, height, 0, 255);
+		//changes the amount of saturation, higher amount the further down on the canvas the mouse is
+       		hr = mouse.y;
+     	  	hr = map(hr, 0, height, 0, 100);
 	}
 
 	endShape();
