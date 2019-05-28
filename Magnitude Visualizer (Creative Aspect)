@@ -4,7 +4,7 @@ This creative aspect will change the Lorenz Attractor's colour based on the posi
 mouseMoved = function() {
     background(255, 255, 255);
     
-    var mouse = new PVector(mouseX, mouseY);
+    var mouse = new p5.Vector(mouseX, mouseY);
     
     stroke(255, 0, 0);
     strokeWeight(3);
