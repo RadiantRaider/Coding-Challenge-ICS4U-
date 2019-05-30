@@ -2,8 +2,6 @@
 
 Information pertinent to the idea of the coding challenge will be in this repo's wiki.
 
----
-
 Wiki:
 https://en.wikipedia.org/wiki/Lorenz_system
 
