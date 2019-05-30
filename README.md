@@ -7,7 +7,9 @@ https://en.wikipedia.org/wiki/Lorenz_system
 
 Sources used from the wiki:
 https://en.wikipedia.org/wiki/Ordinary_differential_equation
+
 https://en.wikipedia.org/wiki/Differential_equation
+
 https://en.wikipedia.org/wiki/Derivative
 
 Alternate Site:
