@@ -13,7 +13,7 @@ https://en.wikipedia.org/wiki/Differential_equation
 
 https://en.wikipedia.org/wiki/Derivative
 
---
+----
 
 Alternate Site:
 http://mathworld.wolfram.com/LorenzAttractor.html
