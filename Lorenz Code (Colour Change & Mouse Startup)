@@ -1,0 +1,92 @@
+let x = 0.01;
+let y = 0;
+let z = 0;
+
+let a = 10;
+let b = 28;
+let c = 8.0 / 3.0;
+
+let bool = 0;
+
+
+// Creating an array of points that will be used to create the curve (This in turn creates the starting point) -
+let points = new Array();
+
+
+// Creating the background that will be drawn on
+function setup() {
+	createCanvas(800, 600, WEBGL);
+	colorMode(HSB);
+    background(0);
+}
+
+mouseClicked = function(){
+  bool = 1;
+  draw();
+}
+
+function draw() {
+  
+  if (bool === 1){
+    background(0);
+//------------------------------------------- This is the math concept -------------------------------------------------------------------
+  
+	let dt = 0.01;
+	let dx = (a * (y - x)) * dt;
+	let dy = (x * (b - z) - y) * dt;
+	let dz = (x * y - c * z) * dt;
+
+	x = x + dx;
+	y = y + dy;
+	z = z + dz;
+
+
+
+//--------------------------------------------------------------------------------------------------------------------------------------
+    points.push(new p5.Vector(x, y, z));
+
+ /*------------------------------------------- This is the computer science concept -----------------------------------------------------
+
+	Makes the mouse able to be used as a camera*/
+    translate(0, 0, -80);
+	let camX = map(mouseX, 0, width, -200, 200);
+	let camY = map(mouseY, 0, height, -200,200); 
+
+
+
+	camera(camX, camY, (height/2.0) / tan(PI*30.0 / 180.0), 0, 0, 0, 0, 1, 0);
+
+ 
+ // --------------------------------------------------------------------------------------------------------------------------------------
+
+	scale(5); // Increases the size of the curve
+	stroke(255);
+	noFill(); // Removes the line that shows the curve being drawn
+
+
+	//variables for colour change
+	let hu = 0;	
+    let hr = 0;
+
+	//tracks the mouse position
+   	let mouse = new p5.Vector(mouseX, mouseY);
+
+	beginShape();
+
+	//applies code inside to each point made
+	for (let v of points) {
+		//sets colour of point and draws it
+		stroke(hu, hr, 255);
+		vertex(v.x, v.y, v.z);
+
+		//changes the colour based on where your mouse is horizontally
+		hu = mouse.x;
+       	hu = map(hu, 0, width, 0, 360);
+
+		//changes the amount of saturation, higher amount the further down on the canvas the mouse is
+       	hr = mouse.y;
+     	hr = map(hr, 0, height, 0, 100);
+        }
+    endShape();
+  }
+}
