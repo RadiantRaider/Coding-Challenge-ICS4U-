@@ -1,17 +1,16 @@
+//Declaring variables
 let x = 0.01;
 let y = 0;
 let z = 0;
 
-let a = 10;
-let b = 28;
-let c = 8.0 / 3.0;
+let a = 10; //Sigma
+let b = 28; //Row
+let c = 8.0 / 3.0; //Beta
 
 let bool = 0;
 
-
-// Creating an array of points that will be used to create the curve (This in turn creates the starting point) -
+// Creating an array of points that will be used to create the curve
 let points = new Array();
-
 
 // Creating the background that will be drawn on
 function setup() {
@@ -21,13 +20,12 @@ function setup() {
 }
 
 mouseClicked = function(){
-  bool = 1;
-  draw();
+  bool = 1;//Setting bool = 1 so that if statement will let draw() run
+  draw();//Calling draw()
 }
 
 function draw() {
-  
-  if (bool === 1){
+  if (bool === 1){//Program will run if bool is set to 1, which happens in mouseClicked
     background(0);
 //------------------------------------------- This is the math concept -------------------------------------------------------------------
   
